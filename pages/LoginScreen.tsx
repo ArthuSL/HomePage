@@ -3,6 +3,10 @@ import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 
 export default function App() {
+  function handleLinkPress(arg0: string): void {
+    throw new Error('Function not implemented.');
+  }
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
@@ -23,9 +27,15 @@ export default function App() {
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
 
-          <Text style={styles.linkText}>Esqueci minha senha</Text>
+          <TouchableOpacity onPress={() => handleLinkPress('https://drive.google.com/drive/my-drive?hl=pt-br')}>
+           <Text style={styles.linkText}>Esqueci minha senha</Text>
+          </TouchableOpacity>
+
           <Text style={styles.registerText}>
-            Não tem uma conta? <Text style={styles.boldLink}>Criar conta</Text>
+            Não tem uma conta? 
+            <TouchableOpacity onPress={() => handleLinkPress('https://drive.google.com/drive/my-drive?hl=pt-br')}>
+              <Text style={styles.linkText}> Criar conta</Text>
+            </TouchableOpacity>
           </Text>
         </View>
 
@@ -85,28 +95,24 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   linkText: {
-    color: '#666',
-    marginTop: 10,
+    color: '#522a91', 
     textAlign: 'center',
+    fontWeight: 'bold',
   },
   registerText: {
     marginTop: 5,
     textAlign: 'center',
-  },
-  boldLink: {
-    fontWeight: 'bold',
-    color: '#000',
   },
   footer: {
     backgroundColor: '#BEACDE',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
   },
   logo: {
-    width: '100%',
+    width: '80%',
   }
 });
 
