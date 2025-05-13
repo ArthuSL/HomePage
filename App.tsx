@@ -8,8 +8,9 @@ export default function App() {
   return <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="alívio"
+          name="Login"
           component={HomeScreen}
+          options={{headerShown:false}}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,42 +1,49 @@
-import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
+import { Image, StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text>Logo</Text>
-      </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.header}>
+        <Image
+            source={require('../assets/logocangUp-horizontal-claro.png')}
+            style={styles.logo}
+            resizeMode="contain"
+          />
+        </View>
 
-      <View style={styles.body}>
-        <Text style={styles.title}>Bem-vindo de volta!</Text>
-        <TextInput style={styles.input} placeholder="Email/CPF/CNPJ" />
-        <TextInput style={styles.input} placeholder="Senha" secureTextEntry />
+        <View style={styles.body}>
+          <Text style={styles.title}>Bem-vindo de volta!</Text>
+          <TextInput style={styles.input} placeholder="Email/CPF/CNPJ" />
+          <TextInput style={styles.input} placeholder="Senha" secureTextEntry />
 
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Login</Text>
+          </TouchableOpacity>
 
-        <Text style={styles.linkText}>Esqueci minha senha</Text>
-        <Text style={styles.registerText}>
-          Não tem uma conta? <Text style={styles.boldLink}>Criar conta</Text>
-        </Text>
-      </View>
+          <Text style={styles.linkText}>Esqueci minha senha</Text>
+          <Text style={styles.registerText}>
+            Não tem uma conta? <Text style={styles.boldLink}>Criar conta</Text>
+          </Text>
+        </View>
 
-      <View style={styles.footer}>
-        <Text>burra da olivia</Text>
-      </View>
-    </View>
+        <View style={styles.footer}>
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFD992',
   },
   header: {
     flex: 1,
-    backgroundColor: '#d9d9d9',
+    backgroundColor: '#BEACDE',
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomLeftRadius: 30,
@@ -65,7 +72,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
   },
   button: {
-    backgroundColor: '#d9d9d9',
+    backgroundColor: '#FFBE31',
     paddingVertical: 12,
     paddingHorizontal: 50,
     borderRadius: 30,
@@ -91,12 +98,15 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   footer: {
-    backgroundColor: '#d9d9d9',
+    backgroundColor: '#BEACDE',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
   },
+  logo: {
+    width: '100%',
+  }
 });
 
